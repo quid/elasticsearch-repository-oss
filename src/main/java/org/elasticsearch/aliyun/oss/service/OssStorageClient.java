@@ -96,7 +96,12 @@ public class OssStorageClient {
                 readWriteLock.readLock().unlock();
             }
         } else {
-            return this.client.doesObjectExist(bucketName, key);
+            try{
+                return this.client.doesObjectExist(bucketName, key);
+            } catch (OSSException e){
+                logger.error(e);
+                return false;
+            }
         }
     }
 

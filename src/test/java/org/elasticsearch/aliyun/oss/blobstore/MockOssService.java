@@ -33,7 +33,7 @@ public class MockOssService extends AbstractComponent implements OssService {
     protected final Map<String, OSSObject> blobs = new ConcurrentHashMap<>();
 
     public MockOssService() {
-        super();
+        super(null);
     }
 
     @Override
